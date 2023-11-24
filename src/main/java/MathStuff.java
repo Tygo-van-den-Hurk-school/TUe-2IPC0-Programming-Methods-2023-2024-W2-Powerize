@@ -115,15 +115,7 @@ public abstract class MathStuff {
 
     //# BEGIN TODO: Contracts and implementations of auxiliary functions
 
-    // /** // since it doesn't need to be robust, this is not needed...
-    //  * Factorizes a number {@code n} into its prime factors.
-    //  * 
-    //  * @param n the number to break up into it's prime factors
-    //  * @pre {@code n >= 1}
-    //  * @return the prime factors of {@code n}
-    //  * @post {@code fill this in... } 
-    //  */
-    public static List<Integer> factorize(int n) {
+    private static List<Integer> factorize(int n) {
     }
 
     /**
