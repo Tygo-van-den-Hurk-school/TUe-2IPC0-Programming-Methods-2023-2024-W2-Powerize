@@ -66,6 +66,85 @@ public class MathStuffTestAuxiliary {
     //     assertNotNull(actual.getMessage(), "message should not be null");
     // }
 
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Factorize ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+    
+    // /**
+    //  * Invokes {@code Mathstuff.factorize(n)} and checks for expected result.
+    //  *
+    //  * @param n         the first number to get the greatest common devisor of.
+    //  * @param expResult the expected prime factors of {@code n}.
+    //  * @pre {@code
+    //  *   0 <= n
+    //  *   && 0 <= b
+    //  *   && \forall(
+    //  *     devisor; 
+    //  *     (a % devisor == 0 && b % devisor == 0);
+    //  *     devisor <= expResult
+    //  *   )
+    //  * }
+    //  */
+    private void checkFactorize(final int n, final List<Integer> expResult) {
+        System.out.println("factorize(" + n + ")");
+        assertEquals(expResult, MathStuff.factorize(n), "factorize(result)");
+    }
+
+    @Test
+    public void testFactorize0() {
+        final int n = 3;
+        final ArrayList<Integer> factors = new ArrayList<Integer>();
+        factors.add(3);
+        checkFactorize(n, factors);
+    }
+
+    @Test
+    public void testFactorize1() {
+        final int n = 4;
+        final ArrayList<Integer> factors = new ArrayList<Integer>();
+        factors.add(2);
+        factors.add(2);
+        checkFactorize(n, factors);
+    }
+
+    @Test
+    public void testFactorize2() {
+        final int n = 35;
+        final ArrayList<Integer> factors = new ArrayList<Integer>();
+        factors.add(7);
+        factors.add(5);
+        checkFactorize(n, factors);
+    }
+
+    @Test
+    public void testFactorize3() {
+        final int n = 27;
+        final ArrayList<Integer> factors = new ArrayList<Integer>();
+        factors.add(3);
+        factors.add(3);
+        factors.add(3);
+        checkFactorize(n, factors);
+    }
+
+    @Test
+    public void testFactorize4() {
+        final int n = 231;
+        final ArrayList<Integer> factors = new ArrayList<Integer>();
+        factors.add(3);
+        factors.add(7);
+        factors.add(11);
+        checkFactorize(n, factors);
+    }
+
+    @Test
+    public void testFactorize5() {
+        final int n = 390625;
+        final ArrayList<Integer> factors = new ArrayList<Integer>();
+        factors.add(25);
+        factors.add(25);
+        factors.add(25);
+        factors.add(25);
+        checkFactorize(n, factors);
+    }
+
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
     //# END TODO
