@@ -109,14 +109,67 @@ public abstract class MathStuff {
      */
     public static Power powerize(int n) throws IllegalArgumentException {
         //# BEGIN TODO: Implementation of powerize
-        // Replace this line
+        
+        if (n < 2) {
+            throw new IllegalArgumentException("n must be greater then 1.");
+        }
+
+        final Map<Integer, Integer> frequencyMap = new HashMap<>();
+        /* getting the prime factors and their frequency of n */ {
+            final List<Integer> primeFactors = MathStuff.factorize(n);
+            for (int number : primeFactors) {
+                frequencyMap.put(
+                    number, 
+                    frequencyMap.getOrDefault(number, 0) + 1
+                );
+            }
+        }
+
+        int exponent;
+        /* calculating the exponent from the gcd of the frequency of each prime number of n */ {
+            final Collection<Integer> values = frequencyMap.values();
+            exponent = MathStuff.getFirstValue(values);
+            for (int value : values) {
+                exponent = gcd(exponent, value);
+            }
+        }
+
+        int base = 1;
+        /* calculating the base from all the prime factors of n and their respective exponents */ {
+            for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+                base *= MathStuff.power(entry.getKey(), (entry.getValue() / exponent));
+            }
+        }
+
+        return new Power(base, exponent);
         //# END TODO
     }
 
     //# BEGIN TODO: Contracts and implementations of auxiliary functions
 
+    private static final int getFirstValue(final Collection<Integer> values) {
+        for (int value : values) {
+            if (value != 0) {
+                return value;
+            }
+        }
+        throw new IllegalArgumentException("no first value");
+    }
+
     /** Factorizes a number {@code n} into its prime factors. */
     public static List<Integer> factorize(int n) {
+        final List<Integer> factors = new ArrayList<>();
+        int divisor = 2;
+
+        while (n > 1) {
+            while (n % divisor == 0) {
+                factors.add(divisor);
+                n /= divisor;
+            }
+            divisor++;
+        }
+
+        return factors;
     }
 
     /**
