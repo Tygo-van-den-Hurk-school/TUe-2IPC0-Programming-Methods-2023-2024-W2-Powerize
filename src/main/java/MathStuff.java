@@ -113,7 +113,7 @@ public abstract class MathStuff {
         //# END TODO
     }
 
-//# BEGIN TODO: Contracts and implementations of auxiliary functions
+    //# BEGIN TODO: Contracts and implementations of auxiliary functions
 
     /**
      * Returns the greatest common devisor of {@code IntegerA}, and {@code IntegerB}.
@@ -134,6 +134,6 @@ public abstract class MathStuff {
 
     }
 
-//# END TODO
+    //# END TODO
 
 }
