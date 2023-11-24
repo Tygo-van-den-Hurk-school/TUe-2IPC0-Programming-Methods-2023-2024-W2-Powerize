@@ -108,9 +108,9 @@ public abstract class MathStuff {
      * @throws IllegalArgumentException if precondition violated
      */
     public static Power powerize(int n) throws IllegalArgumentException {
-//# BEGIN TODO: Implementation of powerize
-// Replace this line
-//# END TODO
+        //# BEGIN TODO: Implementation of powerize
+        // Replace this line
+        //# END TODO
     }
 
 //# BEGIN TODO: Contracts and implementations of auxiliary functions
