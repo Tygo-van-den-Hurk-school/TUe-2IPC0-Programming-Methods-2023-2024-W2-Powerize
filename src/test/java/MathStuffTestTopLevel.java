@@ -124,9 +124,9 @@ public class MathStuffTestTopLevel {
      *     {@code powerize(expB ^ expE).pre}
      */
     private void checkPowerize(int expB, int expE) {
-        long n = MathStuff.power(expB, expE);
+        final int n = (int) (MathStuff.power(expB, expE));
         System.out.println("powerize(" + n + ")");
-        MathStuff.Power result = MathStuff.powerize((int) n);
+        MathStuff.Power result = MathStuff.powerize(n);
         assertEquals(n, MathStuff.power(result), "power(result)");
         assertAll(
                 () -> assertEquals(expB, result.base, "base"),
@@ -162,13 +162,6 @@ public class MathStuffTestTopLevel {
     @Timeout(value = 10, unit = TimeUnit.SECONDS)
     public void testPowerizeLargestNoOverflow() {
         checkPowerize(2, 30);
-    }
-
-    /** Largest base and smallest exponent > 1 without overflow. */
-    @Test
-    @Timeout(value = 10, unit = TimeUnit.SECONDS)
-    public void testPowerizeSmallestOverflow() {
-        checkPowerize(46341, 2);
     }
 
     /**

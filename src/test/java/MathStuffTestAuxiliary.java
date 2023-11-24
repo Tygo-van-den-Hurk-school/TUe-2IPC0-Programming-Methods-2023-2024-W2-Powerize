@@ -109,8 +109,8 @@ public class MathStuffTestAuxiliary {
     public void testFactorize2() {
         final int n = 35;
         final ArrayList<Integer> factors = new ArrayList<Integer>();
-        factors.add(7);
         factors.add(5);
+        factors.add(7);
         checkFactorize(n, factors);
     }
 
@@ -136,12 +136,12 @@ public class MathStuffTestAuxiliary {
 
     @Test
     public void testFactorize5() {
-        final int n = 390625;
+        final int n = 279841;
         final ArrayList<Integer> factors = new ArrayList<Integer>();
-        factors.add(25);
-        factors.add(25);
-        factors.add(25);
-        factors.add(25);
+        factors.add(23);
+        factors.add(23);
+        factors.add(23);
+        factors.add(23);
         checkFactorize(n, factors);
     }
 
