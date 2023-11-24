@@ -115,7 +115,8 @@ public abstract class MathStuff {
 
     //# BEGIN TODO: Contracts and implementations of auxiliary functions
 
-    private static List<Integer> factorize(int n) {
+    /** Factorizes a number {@code n} into its prime factors. */
+    public static List<Integer> factorize(int n) {
     }
 
     /**
