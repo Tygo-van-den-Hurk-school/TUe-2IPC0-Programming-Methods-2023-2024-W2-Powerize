@@ -12,7 +12,8 @@ import java.util.*;
 public class MathStuffTestAuxiliary {
 
     //# BEGIN TODO: Test cases for auxiliary functions
-
+    @Test
+    public static v
     //# END TODO
 
 }

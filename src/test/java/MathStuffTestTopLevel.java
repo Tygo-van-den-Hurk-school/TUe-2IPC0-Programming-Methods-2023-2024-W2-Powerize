@@ -135,6 +135,88 @@ public class MathStuffTestTopLevel {
     }
 
     //# BEGIN TODO: Implementations of test cases for powerize(int)
+    @Test
+    public void testPowerize0() {
+        checkPowerize(2, 8);
+    }
 
+    @Test
+    public void testPowerize1() {
+        checkPowerize(3, 5);
+    }
+
+    @Test
+    public void testPowerize2() {
+        checkPowerize(7, 7);
+    }
+
+    @Test
+    @Timeout(value = 10, unit = TimeUnit.SECONDS)
+    public void testPowerizeSmallestNoOverflow() {
+        int n = Integer.MAX_VALUE;
+        checkPowerize(n, 1);
+    }
+
+    /** Smallest base > 1 and largest exponent without overflow. */
+    @Test
+    @Timeout(value = 10, unit = TimeUnit.SECONDS)
+    public void testPowerizeLargestNoOverflow() {
+        checkPowerize(2, 30);
+    }
+
+    /** Largest base and smallest exponent > 1 without overflow. */
+    @Test
+    @Timeout(value = 10, unit = TimeUnit.SECONDS)
+    public void testPowerizeSmallestOverflow() {
+        checkPowerize(46341, 2);
+    }
+
+    /**
+     * Invokes {@code powerize(n)} and checks for expected exception.
+     *
+     * @param n        number to powerize
+     * @param expected expected exception
+     */
+    private void checkPowerizeException(final int n, final Class<? extends Throwable> expected) {
+        System.out.println("powerize(" + n + "), for exception");
+        Throwable actual = assertThrows(expected, () -> MathStuff.powerize(n),
+                "should have thrown " + expected);
+        assertNotNull(actual.getMessage(), "message should not be null");
+    }
+
+    /** Negative number. */
+    @Test
+    @Timeout(value = 10, unit = TimeUnit.SECONDS)
+    public void testPowerizeExceptionA() {
+        checkPowerizeException(-1, IllegalArgumentException.class);
+    }
+
+    /** number is 1. */
+    @Test
+    @Timeout(value = 10, unit = TimeUnit.SECONDS)
+    public void testPowerizeExceptionB() {
+        checkPowerizeException(1, IllegalArgumentException.class);
+    }
+
+    /** Smoke test. */
+    private void testPowerizedFromPower(final int powerBase, final int powerExponent) {
+        System.out.println("powerize(" + powerBase + "^" + powerExponent + ")");
+        final int power = (int) MathStuff.power(powerBase, powerExponent);
+        final MathStuff.Power powerized = MathStuff.powerize(power);
+        assertEquals(powerBase, powerized.base, "result.base");
+        assertEquals(powerExponent, powerized.exponent, "result.exponent");
+    }
+
+    @Test
+    @Timeout(value = 10, unit = TimeUnit.SECONDS)
+    public void testPowerizePower0() {
+        testPowerizedFromPower(3, 2);
+    }
+
+    @Test
+    @Timeout(value = 10, unit = TimeUnit.SECONDS)
+    public void testPowerizePower1() {
+        testPowerizedFromPower(7, 7);
+    }
     //# END TODO
 }

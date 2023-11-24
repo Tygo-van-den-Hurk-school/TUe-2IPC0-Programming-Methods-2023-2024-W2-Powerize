@@ -114,7 +114,26 @@ public abstract class MathStuff {
     }
 
 //# BEGIN TODO: Contracts and implementations of auxiliary functions
-// Replace this line
+
+    /**
+     * Returns the greatest common devisor of {@code IntegerA}, and {@code IntegerB}.
+     * @param a the first integer to get the greatest common devisor of.
+     * @param b the second integer to get the greatest common devisor of.
+     * @pre {@code a > 0 && b > 0}
+     * @return the greatest common devisor (aka. gcd) of {@code IntegerA}, and {@code IntegerB}.
+     * @post {@code 
+     *   \return == greatestCommonDevisor
+     *   && \forall(
+     *     devisor; 
+     *     (a % devisor == 0 && b % devisor == 0);
+     *     devisor <= greatestCommonDevisor
+     *   )
+     * }
+     */
+    public static int gcd(int a, int b) {
+
+    }
+
 //# END TODO
 
 }
